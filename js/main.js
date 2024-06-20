@@ -18,6 +18,7 @@ const spanScore = document.querySelector(".user-score");
 const questionTrack = document.querySelector(".question-track");
 const optionContainer = document.querySelector(".quiz-options");
 const nextBtn = document.querySelector(".next-btn");
+const resultBtn = document.querySelector(".result-btn");
 
 // --- Global Variables
 const TOTAL_DATABASE_QUESTIONS = questionsData.length;
@@ -94,7 +95,13 @@ optionContainer.addEventListener("click", (event) => {
   for (let i = 0; i < totalOptions; i++) {
     disableThisElement(optionContainer.children[i]);
   }
-  removeDisableOfThisElement(nextBtn);
+  if (CURRENT_QUESTION_INDEX < TOTAL_EXAM_QUESTIONS) {
+    removeDisableOfThisElement(nextBtn);
+  } else {
+    resultBtn.classList.remove("btn-secondary");
+    resultBtn.classList.add("btn-success");
+    removeDisableOfThisElement(resultBtn);
+  }
 });
 
 function showQuestions(counterVal) {
@@ -130,6 +137,7 @@ function showQuestions(counterVal) {
   questionText.textContent = `${counterVal}. ${CURRENT_QUESTION.text}`;
   optionContainer.innerHTML = optTag;
   disableThisElement(nextBtn);
+  disableThisElement(resultBtn);
 }
 
 nextBtn.addEventListener("click", (event) => {
