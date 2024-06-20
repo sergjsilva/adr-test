@@ -16,6 +16,8 @@ const startBtn = document.querySelector(".start-btn");
 const questionsNumberSelected = document.querySelector("#inputGroupSelect");
 const spanScore = document.querySelector(".user-score");
 const questionTrack = document.querySelector(".question-track");
+const optionContainer = document.querySelector(".quiz-options");
+const nextBtn = document.querySelector(".next-btn");
 
 // --- Global Variables
 const TOTAL_DATABASE_QUESTIONS = questionsData.length;
@@ -52,6 +54,7 @@ modalBtns.addEventListener("click", (event) => {
 
       CURRENT_QUESTION_INDEX++;
       trackTotalQuestions(CURRENT_QUESTION_INDEX);
+      showQuestions(CURRENT_QUESTION_INDEX);
     }
   }
 });
@@ -65,3 +68,75 @@ function trackTotalQuestions(questionNumber) {
   const spanCurrentQuestionNumber = document.querySelector(".question-track");
   spanCurrentQuestionNumber.textContent = `${questionNumber} de ${TOTAL_EXAM_QUESTIONS} Preguntas`;
 }
+
+// The user selected an option
+optionContainer.addEventListener("click", (event) => {
+  const selectedOption = event.target.closest(".option");
+  const selectedOptionName = selectedOption.getAttribute("name");
+  let totalOptions = optionContainer.children.length;
+
+  if (selectedOptionName === CURRENT_QUESTION.correctAnswer) {
+    USER_SCORE++;
+    spanScore.textContent = `Acertos: ${USER_SCORE}/${TOTAL_EXAM_QUESTIONS}`;
+    formatCorrectAnswer(selectedOption);
+  } else {
+    formatIncorrectAnswer(selectedOption);
+    for (let i = 0; i < totalOptions; i++) {
+      if (
+        optionContainer.children[i].getAttribute("name") ===
+        CURRENT_QUESTION.correctAnswer
+      ) {
+        formatCorrectAnswer(optionContainer.children[i]);
+      }
+    }
+  }
+
+  for (let i = 0; i < totalOptions; i++) {
+    disableThisElement(optionContainer.children[i]);
+  }
+  removeDisableOfThisElement(nextBtn);
+});
+
+function showQuestions(counterVal) {
+  // Find question text at quiz box
+  const questionText = document.querySelector(".question-text");
+
+  let id = ARRAY_OF_QUESTION_INDEX[counterVal - 1];
+  CURRENT_QUESTION = getQuestionById(id);
+
+  let optTag = `<button class="option text-start mb-2 btn btn-outline-secondary" name="A">
+                <span>A. ${CURRENT_QUESTION.options[0]}
+              </button>
+              <button
+                class="option text-start mb-2 btn btn-outline-secondary"
+                name="B"
+              >
+                <span>B. ${CURRENT_QUESTION.options[1]}</span>
+              </button>
+              <button
+                class="option text-start mb-2 btn btn-outline-secondary"
+                name="C"
+              >
+                <span>C. ${CURRENT_QUESTION.options[2]}</span>
+              </button>
+              <button
+                class="option text-start mb-2 btn btn-outline-secondary"
+                name="D"
+              >
+                <span>D. ${CURRENT_QUESTION.options[3]}</span>
+              </button>`;
+
+  // Change the content
+  questionText.textContent = `${counterVal}. ${CURRENT_QUESTION.text}`;
+  optionContainer.innerHTML = optTag;
+  disableThisElement(nextBtn);
+}
+
+nextBtn.addEventListener("click", (event) => {
+  if (CURRENT_QUESTION_INDEX < TOTAL_EXAM_QUESTIONS) {
+    disableThisElement(nextBtn);
+    CURRENT_QUESTION_INDEX++;
+    trackTotalQuestions(CURRENT_QUESTION_INDEX);
+    showQuestions(CURRENT_QUESTION_INDEX);
+  }
+});
