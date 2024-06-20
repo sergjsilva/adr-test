@@ -100,7 +100,8 @@ optionContainer.addEventListener("click", (event) => {
   } else {
     resultBtn.classList.remove("btn-secondary");
     resultBtn.classList.add("btn-success");
-    removeDisableOfThisElement(resultBtn);
+    resultBtn.style.visibility = "visible";
+    nextBtn.style.visibility = "hidden";
   }
 });
 
@@ -137,7 +138,7 @@ function showQuestions(counterVal) {
   questionText.textContent = `${counterVal}. ${CURRENT_QUESTION.text}`;
   optionContainer.innerHTML = optTag;
   disableThisElement(nextBtn);
-  disableThisElement(resultBtn);
+  resultBtn.style.visibility = "hidden";
 }
 
 nextBtn.addEventListener("click", (event) => {
