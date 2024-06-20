@@ -13,6 +13,10 @@ body {
   overflow-y: scroll;
 }
 
+.start-btn {
+  font-size: 30px;
+}
+
 .main {
   width: 100%;
   min-height: 100vh;
@@ -30,8 +34,9 @@ body {
   pointer-events: none;
 }
 
-.home {
-  background-color: lightblue;
+.input-group-prepend .container {
+  display: flex;
+  flex-direction: column;
 }
 
 .quiz-options {
