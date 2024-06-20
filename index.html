@@ -45,7 +45,7 @@
           <div class="card-header bg-info text-white"> 
             <div class="question-header fw-bold">
               <span class="question-track">Pregunta 1 de 5 </span>
-              <span class="user-score">Score: 0/5</span>
+              <span class="user-score">Acertos: 0/5</span>
             </div>
           </div>
           <div class="card-tile question-text p-2 fw-bold fs-4">
@@ -91,19 +91,18 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header bg-secondary bg-opacity-75 text-light">
-            <h1 class="modal-title fs-5" id="myModalLabel">Quiz App</h1>
+            <h1 class="modal-title fs-5" id="myModalLabel">ADR Test Básico</h1>
             <button class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
             <!-- Input Group-->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect">
-                  ¿Cuántas preguntas en tu test?</label
-                >
+                <div class="container">
+                <!--<label class="input-group-text" for="inputGroupSelect"></label>-->
               </div>
-              <select class="custom-select" id="inputGroupSelect">
-                <option selected>Selecione ...</option>
+              <select class="custom-select mt-2" id="inputGroupSelect">
+                <option selected>Seleccione el número de preguntas:</option>
                 <option value="5">5 preguntas</option>
                 <option value="10">10 preguntas</option>
                 <option value="15">15 preguntas</option>
@@ -111,6 +110,7 @@
                 <option value="25">25 preguntas</option>
                 <option value="30">30 preguntas</option>
               </select>
+            </div>
             </div>
           </div>
           <div class="modal-footer">
