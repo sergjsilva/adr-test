@@ -32,6 +32,14 @@ startBtn.addEventListener("click", (event) => {
   mainContainer.classList.add("active");
 });
 
+resultBtn.addEventListener("click", (event) => {
+  const cardContainer = document.querySelector(".card-container");
+  cardContainer.style.display = "none";
+
+  const resultBox = document.querySelector(".result-box");
+  resultBox.style.display = "";
+});
+
 modalBtns.addEventListener("click", (event) => {
   const button = event.target.name;
   if (button === "exit" || button === "continue") {
@@ -102,6 +110,8 @@ optionContainer.addEventListener("click", (event) => {
     resultBtn.classList.add("btn-success");
     resultBtn.style.visibility = "visible";
     nextBtn.style.visibility = "hidden";
+    mainContainer.style.background = "#09001d";
+    drawResult();
   }
 });
 
@@ -149,3 +159,25 @@ nextBtn.addEventListener("click", (event) => {
     showQuestions(CURRENT_QUESTION_INDEX);
   }
 });
+
+// %%%%%%%%%%%%%%%55
+
+function drawResult() {
+  const progressValue = document.querySelector(".progress-value");
+  const circularProgress = document.querySelector(".circular-progress");
+
+  let progressStartValue = 0;
+  let progressEndValue = 75;
+  let speed = 30;
+
+  let progress = setInterval(() => {
+    progressStartValue++;
+    progressValue.textContent = `${progressStartValue}%`;
+    circularProgress.style.background = `conic-gradient(#c40094 ${
+      progressStartValue * 3.6
+    }deg, rgba(255, 255, 255, 0.1) 0deg)`;
+    if (progressStartValue == progressEndValue) {
+      clearInterval(progress);
+    }
+  }, speed);
+}
