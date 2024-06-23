@@ -58,3 +58,11 @@ export function disableThisElement(element) {
 export function removeDisableOfThisElement(element) {
   element.disabled = false;
 }
+
+export function getSelectedRadioValue() {
+  const selectedRadio = document.querySelector(
+    'input[name="radioBtn"]:checked'
+  );
+  const selectedValue = selectedRadio ? selectedRadio.value : "No selection";
+  return selectedValue;
+}

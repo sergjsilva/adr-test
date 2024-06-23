@@ -129,7 +129,7 @@ export const questionsData = [
   },
 ];
 
-export const messages = [
+export const messagesData = [
   {
     grade: "honor",
     gradeText: "¡Excelente!",

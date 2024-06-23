@@ -6,14 +6,15 @@ import {
   formatIncorrectAnswer,
   disableThisElement,
   removeDisableOfThisElement,
+  getSelectedRadioValue,
 } from "./utility.js";
 
-import { questionsData } from "../db/db.js";
+import { questionsData, messagesData } from "../db/db.js";
 
 const modalBtns = document.querySelector(".modal-buttons");
 const mainContainer = document.querySelector(".main");
 const startBtn = document.querySelector(".start-btn");
-const questionsNumberSelected = document.querySelector("#inputGroupSelect");
+//const questionsNumberSelected = getSelectedRadioValue();
 const spanScore = document.querySelector(".user-score");
 const questionTrack = document.querySelector(".question-track");
 const optionContainer = document.querySelector(".quiz-options");
@@ -22,7 +23,8 @@ const resultBtn = document.querySelector(".result-btn");
 
 // --- Global Variables
 const TOTAL_DATABASE_QUESTIONS = questionsData.length;
-export let TOTAL_EXAM_QUESTIONS = questionsNumberSelected.value;
+let TOTAL_EXAM_QUESTIONS = getSelectedRadioValue();
+
 let ARRAY_OF_QUESTION_INDEX = [];
 let CURRENT_QUESTION_INDEX = 0;
 let CURRENT_QUESTION = {};
@@ -38,6 +40,9 @@ resultBtn.addEventListener("click", (event) => {
 
   const resultBox = document.querySelector(".result-box");
   resultBox.style.display = "";
+  const scoreText = document.querySelector(".score-text");
+  scoreText.textContent = `Has acertado ${USER_SCORE} de ${TOTAL_EXAM_QUESTIONS} preguntas`;
+  /*drawResult();*/
 });
 
 modalBtns.addEventListener("click", (event) => {
@@ -46,31 +51,24 @@ modalBtns.addEventListener("click", (event) => {
     mainContainer.classList.remove("active");
   }
   if (button === "continue") {
-    TOTAL_EXAM_QUESTIONS = extractNumber(questionsNumberSelected.value);
+    TOTAL_EXAM_QUESTIONS = getSelectedRadioValue();
 
     //If user selected the number of questions
-    if (TOTAL_EXAM_QUESTIONS !== -1) {
-      ARRAY_OF_QUESTION_INDEX = createQuestionsArray(
-        TOTAL_DATABASE_QUESTIONS,
-        TOTAL_EXAM_QUESTIONS
-      );
-      spanScore.textContent = `Acertos: ${USER_SCORE}/${TOTAL_EXAM_QUESTIONS}`;
-      questionTrack.textContent = `Pregunta 1 de 5`;
-      var section = document.querySelector(".home");
-      const cardContainer = document.querySelector(".card-container");
-      section.style.display = "none";
-      cardContainer.style.display = "";
+    ARRAY_OF_QUESTION_INDEX = createQuestionsArray(
+      TOTAL_DATABASE_QUESTIONS,
+      TOTAL_EXAM_QUESTIONS
+    );
+    spanScore.textContent = `Acertos: ${USER_SCORE}/${TOTAL_EXAM_QUESTIONS}`;
+    questionTrack.textContent = `Pregunta 1 de 5`;
+    var section = document.querySelector(".home");
+    const cardContainer = document.querySelector(".card-container");
+    section.style.display = "none";
+    cardContainer.style.display = "";
 
-      CURRENT_QUESTION_INDEX++;
-      trackTotalQuestions(CURRENT_QUESTION_INDEX);
-      showQuestions(CURRENT_QUESTION_INDEX);
-    }
+    CURRENT_QUESTION_INDEX++;
+    trackTotalQuestions(CURRENT_QUESTION_INDEX);
+    showQuestions(CURRENT_QUESTION_INDEX);
   }
-});
-
-//If any change update the total value
-questionsNumberSelected.addEventListener("change", (event) => {
-  TOTAL_EXAM_QUESTIONS = extractNumber(event.target.value);
 });
 
 function trackTotalQuestions(questionNumber) {
@@ -110,8 +108,9 @@ optionContainer.addEventListener("click", (event) => {
     resultBtn.classList.add("btn-success");
     resultBtn.style.visibility = "visible";
     nextBtn.style.visibility = "hidden";
-    mainContainer.style.background = "#09001d";
-    drawResult();
+    const grade = (USER_SCORE / TOTAL_EXAM_QUESTIONS) * 10;
+    console.log(`Grade is ${grade}`);
+    getMessageFromScore(grade);
   }
 });
 
@@ -160,24 +159,29 @@ nextBtn.addEventListener("click", (event) => {
   }
 });
 
-// %%%%%%%%%%%%%%%55
+function getMessageFromScore(score) {
+  const titleMessage = document.querySelector(".result-message");
+  const subtitleMessage = document.querySelector(".comment-message");
+  const percentageContainer = document.querySelector(".percentage");
+  const value = score * 10;
+  percentageContainer.textContent = `${value}%`;
 
-function drawResult() {
-  const progressValue = document.querySelector(".progress-value");
-  const circularProgress = document.querySelector(".circular-progress");
+  let message;
 
-  let progressStartValue = 0;
-  let progressEndValue = 75;
-  let speed = 30;
+  if (score < 5) {
+    message = messagesData.find((msg) => msg.grade === "reprovado");
+  } else if (score >= 5 && score <= 7.9) {
+    message = messagesData.find((msg) => msg.grade === "notable");
+  } else if (score >= 8 && score <= 8.9) {
+    message = messagesData.find((msg) => msg.grade === "sobresaliente");
+  } else if (score >= 9 && score <= 10) {
+    message = messagesData.find((msg) => msg.grade === "honor");
+  } else {
+    console.log("ERROR:: Invalid Data in function ShowGradeMessage!");
+    return;
+  }
 
-  let progress = setInterval(() => {
-    progressStartValue++;
-    progressValue.textContent = `${progressStartValue}%`;
-    circularProgress.style.background = `conic-gradient(#c40094 ${
-      progressStartValue * 3.6
-    }deg, rgba(255, 255, 255, 0.1) 0deg)`;
-    if (progressStartValue == progressEndValue) {
-      clearInterval(progress);
-    }
-  }, speed);
+  titleMessage.textContent = message.gradeText;
+  subtitleMessage.textContent = message.comment;
 }
+// %%%%%%%%%%%%%%%

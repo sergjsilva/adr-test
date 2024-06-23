@@ -55,53 +55,39 @@ body {
   justify-content: space-between;
 }
 
-.result-box {
-  border: 2px solid #c40094;
-  border-radius: 6px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 500px;
-  transition: 1.3s ease;
-  transition-delay: 1s;
-}
+/*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5*/
 
-.result-box h2 {
-  font-size: 52px;
-}
-
-.result-box .percent-container {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px 0 40px;
-}
-
-.circular-progress {
+.progress-circle {
+  width: 150px;
+  height: 150px;
   position: relative;
-  width: 250px;
-  height: 250px;
-  background: conic-gradient(#c40094 3.6deg, rgba(255, 255, 255, 0.1) 0deg);
-  border-radius: 50%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
 }
 
-/* internal circle */
-.circular-progress::before {
-  content: "";
+.progress-circle svg {
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.progress-circle .circle {
+  stroke: #007bff;
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - (440 * var(--percent)) / 100);
+  stroke-width: 10;
+  fill: none;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.progress-circle .background {
+  stroke: #e6e6e6;
+  stroke-width: 10;
+  fill: none;
+}
+
+.progress-circle .percentage {
   position: absolute;
-  width: 210px;
-  height: 210px;
-  background: #09001d;
-  border-radius: 50%;
-}
-
-.progress-value {
-  position: relative;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: bold;
 }
