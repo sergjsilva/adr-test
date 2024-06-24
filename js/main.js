@@ -7,6 +7,7 @@ import {
   disableThisElement,
   removeDisableOfThisElement,
   getSelectedRadioValue,
+  setProgress,
 } from "./utility.js";
 
 import { questionsData, messagesData } from "../db/db.js";
@@ -164,7 +165,8 @@ function getMessageFromScore(score) {
   const subtitleMessage = document.querySelector(".comment-message");
   const percentageContainer = document.querySelector(".percentage");
   const value = score * 10;
-  percentageContainer.textContent = `${value}%`;
+  /* percentageContainer.textContent = `${value}%`;*/
+  setProgress(value);
 
   let message;
 
@@ -184,4 +186,3 @@ function getMessageFromScore(score) {
   titleMessage.textContent = message.gradeText;
   subtitleMessage.textContent = message.comment;
 }
-// %%%%%%%%%%%%%%%

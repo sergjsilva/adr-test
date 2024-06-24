@@ -66,3 +66,11 @@ export function getSelectedRadioValue() {
   const selectedValue = selectedRadio ? selectedRadio.value : "No selection";
   return selectedValue;
 }
+
+export function setProgress(percent) {
+  const progressCircle = document.querySelector(".progress-circle");
+  progressCircle.style.setProperty("--percent", percent);
+  document.querySelector(
+    ".progress-circle .percentage"
+  ).textContent = `${percent}%`;
+}

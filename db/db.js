@@ -127,6 +127,219 @@ export const questionsData = [
     ],
     correctAnswer: "B",
   },
+
+  {
+    id: 12,
+    text: "Un vehículo cisterna y un camión caja deben llevar, si transportan una única mercancía peligrosa:",
+    options: [
+      "el mismo número de paneles.",
+      "la cisterna 4 y el camión caja 2.",
+      "la cisterna 2 y el camión caja 4.",
+      "Los camiones caja no deben llevar paneles naranja.",
+    ],
+    correctAnswer: "A",
+  },
+
+  {
+    id: 13,
+    text: "¿Cuál de los siguiente distintivos es el que lleva dos paneles rectangulares de color naranja, con bordes y números de color negro, retrorreflectantes, visibles y colocados uno en la parte anterior y otro en la parte posterior del vehículo?",
+    options: [
+      "Placa de limitación de velocidad.",
+      "Distintivo de inspección técnica de vehículos.",
+      "Distintivo de nacionalidad extranjera. ",
+      "Paneles indicadores de mercancías peligrosas.",
+    ],
+    correctAnswer: "D",
+  },
+  {
+    id: 14,
+    text: "Señale cuál de los siguientes distintivos en los vehículos pertenece a la señalización relativa al transporte realizado.",
+    options: [
+      "Placa de limitación de velocidad.",
+      "Paneles y etiquetas indicadores de mercancías peligrosas.",
+      "Placas de matrícula homologadas, delantera y trasera. ",
+      "Distintivo de transporte de mercancías perecederas.",
+    ],
+    correctAnswer: "B",
+  },
+  {
+    id: 15,
+    text: "¿Puede el conductor de un vehículo de transporte abrir un bulto que contenga mercancía peligrosa?",
+    options: [
+      "Nunca.",
+      "Sólo si considera que puede estar comprometida la seguridad de la carga y el vehículo.",
+      "Sí, si lo hace siguiendo estrictamente las instrucciones escritas que debe llevar a bordo.",
+      "Sí, si lo hace en el exterior del vehículo y utilizando los medios de protección individual.",
+    ],
+    correctAnswer: "A",
+  },
+  {
+    id: 16,
+    text: ".De los documentos siguientes, ¿cuál no es propio del transporte de mercancías?",
+    options: [
+      "Título habilitante para el transporte. ",
+      "Autorización de transporte internacional para los viajes al extranjero no liberalizados.",
+      " Certificado ATP, en su caso. ",
+      "Autorización específica de servicio regular de uso especial",
+    ],
+    correctAnswer: "D",
+  },
+  {
+    id: 17,
+    text: "En el transporte de mercancías peligrosas, ¿qué identifican las etiquetas de peligro?",
+    options: [
+      "Identifican el transporte como de viajeros.",
+      "Identifican el tipo de permiso del conductor.",
+      "Identifican el transporte como de mercancías peligrosas.",
+      "Identifican el peligro o peligros principales:",
+    ],
+    correctAnswer: "D",
+  },
+  {
+    id: 18,
+    text: "De los siguientes elementos, ¿cuál forma parte del equipo diverso que debe llevar toda unidad de transporte que lleve mercancías peligrosas?",
+    options: [
+      "Unas botas para el agua.",
+      "Un chaleco antisalpicaduras.",
+      "Un casco antivandalismo. ",
+      "Un calzo por vehículo, al menos de dimensiones apropiadas al peso del vehículo y al diámetro de las ruedas.",
+    ],
+    correctAnswer: "D",
+  },
+  {
+    id: 19,
+    text: "De los siguientes elementos, ¿cuál forma parte del equipo diverso que debe llevar toda unidad de transporte que lleve mercancías peligrosas?",
+    options: [
+      "Un chaleco antisalpicaduras para cada miembro de la dotación del vehículo.",
+      "Un chaleco fluorescente apropiado para cada miembro de la dotación del vehículo.",
+      "Una cámara fotográfica digital.",
+      "Un casco antivandalismo para cada miembro de la dotación del vehículo.",
+    ],
+    correctAnswer: "B",
+  },
+  {
+    id: 20,
+    text: "De los siguientes elementos, ¿cuál forma parte del equipo diverso que debe llevar toda unidad de transporte que lleve mercancías peligrosas? ",
+    options: [
+      "Unas botas para el agua para cada miembro de la dotación del vehículo. ",
+      "Un chaleco antisalpicaduras para cada miembro de la dotación del vehículo.",
+      "Un casco antivandalismo para cada miembro de la dotación del vehículo.",
+      "Una linterna para cada miembro de la dotación del vehículo.",
+    ],
+    correctAnswer: "D",
+  },
+  {
+    id: 21,
+    text: "¿Qué debe hacerse con los paneles rectangulares de color naranja cuando no se transporte mercancías peligrosas? ",
+    options: [
+      "Dejarlos visibles.",
+      "Tienen que ser retirados.",
+      "Tienen que ser colocados en los laterales del vehículo.",
+      "Iluminarlos adecuadamente.",
+    ],
+    correctAnswer: "B",
+  },
+
+  {
+    id: 22,
+    text: "En un transporte de mercancías peligrosas, ¿qué peligro indica el número de identificación de peligro 2?",
+    options: [
+      "Comburente.",
+      "Emanación de gases resultantes de presión o de una reacción química.",
+      "Toxicidad.",
+      "Inflamabilidad o autocalentamiento de materias líquidas o gases.",
+    ],
+    correctAnswer: "B",
+  },
+
+  {
+    id: 23,
+    text: "En un transporte de mercancías peligrosas, ¿qué peligro indica el número de identificación de peligro 3?",
+    options: [
+      "Radiactividad.",
+      "Inflamabilidad o autocalentamiento de materias líquidas o gases.",
+      "Corrosividad.",
+      " Inflamabilidad o autocalentamiento de materias sólidas.",
+    ],
+    correctAnswer: "B",
+  },
+  {
+    id: 24,
+    text: "En un transporte de mercancías peligrosas, ¿qué significado tienen la cifra de identificación de peligro 99?",
+    options: [
+      "Materias peligrosas diversas transportadas en caliente.",
+      "Gas licuado refrigerado, asfixiante.",
+      "Peligro de reacción violenta espontánea.",
+      "Emanación, de gases resultantes de presión o de una reacción química.",
+    ],
+    correctAnswer: "A",
+  },
+  {
+    id: 25,
+    text: "En un transporte de mercancías peligrosas, ¿qué significado tienen la cifra de identificación de peligro 22?",
+    options: [
+      "Peróxido orgánico inflamable.",
+      "Materia líquida pirofórica ",
+      "Materia corrosiva líquida que reacciona con el agua desprendiendo gases inflamables",
+      "Gas licuado refrigerado, asfixiante.",
+    ],
+    correctAnswer: "D",
+  },
+  {
+    id: 26,
+    text: "En un transporte de mercancías peligrosas, ¿qué significado tiene la cifra de identificación de peligro 333?",
+    options: [
+      "Materia líquida pirofórica.",
+      "Materia peligrosa desde el punto de vista medioambiental, materias peligrosas diversas.",
+      "Gas licuado refrigerado, asfixiante.",
+      "Peróxido orgánico inflamable.",
+    ],
+    correctAnswer: "A",
+  },
+  {
+    id: 27,
+    text: "En un transporte de mercancías peligrosas, ¿qué significado tiene la cifra de identificación de peligro 44?",
+    options: [
+      "Gas licuado refrigerado, asfixiante.",
+      "Materia sólida inflamable que, a una temperatura elevada, se encuentra en estado fundido.",
+      "Materia infecciosa.",
+      "Materias peligrosas diversas transportadas en caliente.",
+    ],
+    correctAnswer: "B",
+  },
+  {
+    id: 28,
+    text: "En un transporte de mercancías peligrosas, ¿qué significado tiene la cifra de identificación de peligro 606?",
+    options: [
+      "Materia corrosiva sólida que reacciona con el agua desprendiendo gases inflamables.",
+      "Peróxido orgánico inflamable.",
+      "Materia infecciosa.",
+      "Materias peligrosas diversas transportadas en caliente.",
+    ],
+    correctAnswer: "C",
+  },
+  {
+    id: 29,
+    text: "¿Qué número de placas-etiquetas deberá llevar un vehículo-cisterna que va vacío pero sin limpiar?",
+    options: [
+      "Únicamente las de delante.",
+      "Ninguna.",
+      "Las mismas que llevaba cargado.",
+      "Sólo dos, delante y detrás.",
+    ],
+    correctAnswer: "C",
+  },
+  {
+    id: 30,
+    text: "¿Qué placas-etiquetas llevarán los contenedores-cisterna que contengan materias de la Clase 4.3?",
+    options: [
+      "Llama sobre un círculo negro sobre fondo amarillo. ",
+      "Llama negra o blanca sobre fondo azul con un 4 en el vértice inferior. ",
+      "Llama azul sobre un círculo rojo sobre fondo amarillo.",
+      "Calavera sobre dos tibias negras sobre fondo blanco.",
+    ],
+    correctAnswer: "B",
+  },
 ];
 
 export const messagesData = [
