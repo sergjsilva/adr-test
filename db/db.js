@@ -175,7 +175,7 @@ export const questionsData = [
   },
   {
     id: 16,
-    text: ".De los documentos siguientes, ¿cuál no es propio del transporte de mercancías?",
+    text: "De los documentos siguientes, ¿cuál no es propio del transporte de mercancías?",
     options: [
       "Título habilitante para el transporte. ",
       "Autorización de transporte internacional para los viajes al extranjero no liberalizados.",
