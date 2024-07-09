@@ -385,6 +385,17 @@ export const questionsData = [
     ],
     correctAnswer: "C",
   },
+  {
+    id: 35,
+    text: "¿Qué transportes de mercancías peligrosas están exentos de la utilización obligatoria de la RIMP?",
+    options: [
+      "Los gases necesarios para el funcionamiento de centros sanitarios.",
+      "Los combustibles con destino a puertos y aeropuertos.",
+      "La materias destinadas al aprovisionamiento de estaciones de servicio.",
+      "Todas las respuestas son correctas.",
+    ],
+    correctAnswer: "D",
+  },
 ];
 
 export const messagesData = [
