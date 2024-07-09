@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.start-btn {
+  font-size: 20px;
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background: url(../images/background-image.jpg) no-repeat center center fixed;
+  background-size: cover;
+  /* pointer-events: auto;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main.active {
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.input-group-prepend .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-circle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.progress-circle svg {
+  display: block;
+  margin: auto;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.progress-circle .circle {
+  stroke: forestgreen;
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - (440 * var(--percent)) / 100);
+  stroke-width: 20;
+  fill: none;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.progress-circle .background {
+  stroke: #e6e6e6;
+  stroke-width: 20;
+  fill: none;
+}
+
+.progress-circle .percentage {
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
