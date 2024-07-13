@@ -396,6 +396,17 @@ export const questionsData = [
     ],
     correctAnswer: "D",
   },
+  {
+    id: 36,
+    text: "¿Por dónde establece la normativa que deben circular los vehículos que transporten mercancías peligrosas?",
+    options: [
+      "Por los itinerarios previamente autorizados en función del vehículo y de la mercancías transportada.",
+      "Por el itinerario reflejado en la carta de porte.",
+      "Por las vías que cumplan los niveles de seguridad acordes con las mercancías transportadas.",
+      "Por itinerarios incluidos en la RIMP.",
+    ],
+    correctAnswer: "D",
+  },
 ];
 
 export const messagesData = [
